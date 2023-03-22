@@ -48,6 +48,7 @@ dependencies:
   firebase_analytics: ^5.0.6
   image_picker: ^0.8.6+4
   firebase_messaging: ^14.2.6
+  flutter_bloc: ^8.1.2
 
 dev_dependencies:
   flutter_test:
@@ -92,7 +93,7 @@ flutter:
       fonts:
         - asset: lib/assets/fonts/Montserrat-Medium.ttf
         - asset: lib/assets/fonts/Montserrat-Bold.ttf
-          style: bold
+          style: italic
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

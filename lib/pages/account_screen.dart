@@ -49,15 +49,16 @@ class _AccountScreenState extends State<AccountScreen> {
 
   Future<void> signOut() async {
     final navigator = Navigator.of(context);
-    navigator.pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
     FirebaseAuth.instance.signOut();
+    navigator.pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+    
   }
 
   Future<void> delete() async {
     final navigator = Navigator.of(context);
     FirebaseFirestore.instance.collection('users').doc(user!.uid).delete();
     FirebaseAuth.instance.currentUser!.delete();
-    navigator.pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+    navigator.pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
   }
 
   @override

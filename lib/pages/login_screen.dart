@@ -78,19 +78,9 @@ class _LoginScreenState extends State<LoginScreen> {
           key: formKey,
           child: Column(
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
-                child: Center(
-                    child: Text(
-                  'FURshop',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      fontFamily: 'montserrat'),
-                )),
-              ),
+              
               const Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 90, 0, 80),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 130, 0, 80),
                 child: Center(
                     child: Text(
                   'Войдите\nпо электронной почте',
