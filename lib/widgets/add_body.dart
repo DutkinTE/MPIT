@@ -31,7 +31,7 @@ class _AddBodyState extends State<AddBody> {
     final isValid = formKey.currentState!.validate();
     if (!isValid) return;
 
-    await FirebaseFirestore.instance.collection('cabinet').add({
+    await FirebaseFirestore.instance.collection('cabinet').doc(nameTextInputController.text).set({
       'name': nameTextInputController.text,
       'events': eventTextInputController.text,
       'info': infoTextInputController.text,
@@ -85,10 +85,6 @@ class _AddBodyState extends State<AddBody> {
                   keyboardType: TextInputType.text,
                   controller: infoTextInputController,
                   autocorrect: false,
-                  validator: (info) =>
-                      info != null && info.isEmpty
-                          ? 'Введите информацию'
-                          : null,
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsetsDirectional.fromSTEB(50, 7, 0, 0),
                     hintStyle: TextStyle(
@@ -115,10 +111,6 @@ class _AddBodyState extends State<AddBody> {
                   keyboardType: TextInputType.text,
                   controller: responsibleTextInputController,
                   autocorrect: false,
-                  validator: (responsible) =>
-                      responsible != null && responsible.isEmpty
-                          ? 'Введите ответственного'
-                          : null,
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsetsDirectional.fromSTEB(50, 7, 0, 0),
                     hintStyle: TextStyle(

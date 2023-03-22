@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +37,8 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
       this.name,  this.events, this.info, this.list, this.responsible, this.id,);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return 
+    Scaffold(
         backgroundColor: Color.fromRGBO(196, 202, 224, 1),
         body: Column(children: [
           SizedBox(
