@@ -108,7 +108,7 @@ class _SignUpScreen extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromRGBO(196, 202, 224, 1),
       body: ListView(children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(left: 30.0, right: 30),
@@ -163,7 +163,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                     hintStyle: TextStyle(
                         color: Color.fromRGBO(162, 162, 162, 1),
                         fontSize: 16,
-                        fontFamily: 'montserrat'),
+                        fontFamily: 'comfortaa'),
                     hintText: 'Фамилия',
                   ),
                 ),
@@ -183,7 +183,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                     hintStyle: TextStyle(
                         color: Color.fromRGBO(162, 162, 162, 1),
                         fontSize: 16,
-                        fontFamily: 'montserrat'),
+                        fontFamily: 'comfortaa'),
                     hintText: 'Введите Email',
                   ),
                 ),
@@ -204,7 +204,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                     hintStyle: const TextStyle(
                         color: Color.fromRGBO(162, 162, 162, 1),
                         fontSize: 16,
-                        fontFamily: 'montserrat'),
+                        fontFamily: 'comfortaa'),
                     hintText: 'Введите пароль',
                     suffix: InkWell(
                       onTap: togglePasswordView,
@@ -234,7 +234,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                     hintStyle: const TextStyle(
                         color: Color.fromRGBO(162, 162, 162, 1),
                         fontSize: 16,
-                        fontFamily: 'montserrat'),
+                        fontFamily: 'comfortaa'),
                     hintText: 'Введите пароль еще раз',
                     suffix: InkWell(
                       onTap: togglePasswordView,
@@ -259,7 +259,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                         ),
                       ),
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white)),
+                          MaterialStateProperty.all<Color>(Color.fromRGBO(150, 166, 192, 1))),
                   onPressed: signUp,
                   child: const SizedBox(
                       height: 34,
@@ -271,7 +271,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                             color: Colors.black,
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            fontFamily: 'montserrat'),
+                            fontFamily: 'comfortaa'),
                       ))),
                 ),
               ],

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 
 import '../models/user_model.dart';
 
-
 class AccountBody extends StatefulWidget {
   const AccountBody({super.key});
 
@@ -27,69 +26,79 @@ class _AccountBodyState extends State<AccountBody> {
       setState(() {});
     });
   }
-  
 
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
-  
+
   @override
   Widget build(BuildContext context) {
-    if (loggedInUser.firstName == null){
+    if (loggedInUser.firstName == null) {
       return Center(child: Text('Подождите'));
     }
     return ListView(
-        children: [
-          Container(height: 100,
-          decoration: BoxDecoration(
-            
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey,
-                offset: Offset(0.0, 1.0),
-                blurRadius: 3.0
-              ),
-            ]
-          ),  
+      children: [
+        Container(
+          height: 90,
+          decoration: BoxDecoration(color: Color.fromRGBO(123, 142, 173, 1)),
           child: Column(
             children: [
-              SizedBox(height: 50,),
-          Row(
-            children: [
-              SizedBox(width: 20,),
-              Icon(Icons.person_outline, size: 35,),
-              SizedBox(width: 15,),
-              Text('${loggedInUser.firstName} ${loggedInUser.secondName}', style: TextStyle(fontSize: 16, fontFamily: 'montserrat', color: Color.fromRGBO(162, 162, 162, 1)),)
-            ],
-          ),
-            ],
-          ),),
-          
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, '/account');
-            },
-            child: Container(
-              height: 50,
-              decoration: BoxDecoration(
-                
-                border: Border.all(width: 1, color: Color.fromRGBO(210, 210, 210, 1))),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                  SizedBox(width: 290,
-                    child: Row(children: [SizedBox(width: 20,), Icon(Icons.edit_document, size: 35,),
-                    SizedBox(width: 20,),
-                  Text('Редактировать профиль', style: TextStyle(fontFamily: 'montserrat', fontSize: 16),),],),),
-                  
-                  SizedBox(
-                    child: Row(children: [Icon(Icons.navigate_next, size: 35, color: Color.fromRGBO(210, 210, 210, 1)),
-                    SizedBox(width: 20,),],),),
-                ],),
+              SizedBox(
+                height: 30,
               ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Icon(
+                    Icons.person_outline,
+                    size: 35,
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Text(
+                    '${loggedInUser.firstName} ${loggedInUser.secondName}',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: 'comfortaa',
+                        color: Colors.white),
+                  )
+                ],
+              ),
+            ],
           ),
-        ],
-      )
-    ;
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/account');
+          },
+          child: Container(
+            height: 50,
+            decoration: BoxDecoration(
+                color: Color.fromRGBO(123, 142, 173, 1),
+                border: Border.all(
+                    width: 1, color: Color.fromRGBO(210, 210, 210, 1))),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(width: 30,),
+                SizedBox(
+                  width: 290,
+                  child: Text(
+                    'Редактировать профиль',
+                    style: TextStyle(
+                        fontFamily: 'comfortaa',
+                        fontSize: 14,
+                        color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }

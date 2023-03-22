@@ -26,6 +26,7 @@ class _MyAppState extends State<MyApp> {
           body: const Center(child: CircularProgressIndicator()));
     };
     return MaterialApp(
+      
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => const FirebaseStream(),

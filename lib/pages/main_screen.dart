@@ -3,8 +3,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mpit/const/admin.dart';
+import 'package:mpit/data/admin.dart';
 import 'package:mpit/models/user_model.dart';
+import 'package:mpit/pages/list_screen.dart';
+import 'package:mpit/var/var.dart';
 import 'package:mpit/widgets/add_body.dart';
 
 import '../widgets/account_body.dart';
@@ -18,7 +20,6 @@ class Screen extends StatefulWidget {
 }
 
 class _ScreenState extends State<Screen> {
-  int selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
       selectedIndex = index;
@@ -52,10 +53,11 @@ class _ScreenState extends State<Screen> {
 
     ErrorWidget.builder = (FlutterErrorDetails flutterErrorDetails) {
       return const Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: Color.fromRGBO(196, 202, 224, 1),
           body: Center(child: Text('Подождите')));
     };
     return Scaffold(
+      
       drawer: Padding(
         padding: const EdgeInsets.only(
           top: 50.0,
@@ -65,12 +67,33 @@ class _ScreenState extends State<Screen> {
           borderRadius: BorderRadius.only(
               topRight: Radius.circular(10), bottomRight: Radius.circular(10)),
           child: Drawer(
-            backgroundColor: Color.fromRGBO(151, 114, 92, 1),
+            backgroundColor: Color.fromRGBO(93, 118, 149, 1),
             width: 200,
+            child: Column(children: [
+              SizedBox(height: 10,),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ListScreen()));
+                },
+                child: Row(children: [
+                  SizedBox(width: 10,),
+                  Icon(Icons.door_front_door_outlined, color: Colors.white, size: 30,),
+                  SizedBox(width: 10,),
+                  Text('Кабинеты', style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.white,
+                                  fontFamily: 'comfortaa')),
+                                  
+                ],),
+              )
+            ]),
           ),
         ),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromRGBO(196, 202, 224, 1),
       key: scaffoldKey,
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: Padding(
@@ -81,13 +104,13 @@ class _ScreenState extends State<Screen> {
         ),
         child: ClipRRect(
             borderRadius: BorderRadius.all(
-              Radius.circular(17),
+              Radius.circular(20),
             ),
             child: admin.contains(user!.email)
                 ? BottomNavigationBar(
                     showSelectedLabels: false,
                     showUnselectedLabels: false,
-                    backgroundColor: Color.fromRGBO(83, 82, 82, 1),
+                    backgroundColor: Color.fromRGBO(93, 118, 149, 1),
                     items: <BottomNavigationBarItem>[
                       BottomNavigationBarItem(
                           icon: Icon(
@@ -112,7 +135,7 @@ class _ScreenState extends State<Screen> {
                 : BottomNavigationBar(
                     showSelectedLabels: false,
                     showUnselectedLabels: false,
-                    backgroundColor: Color.fromRGBO(83, 82, 82, 1),
+                    backgroundColor: Color.fromRGBO(93, 118, 149, 1),
                     items: <BottomNavigationBarItem>[
                       BottomNavigationBarItem(
                           icon: Icon(

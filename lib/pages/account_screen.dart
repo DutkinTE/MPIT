@@ -78,6 +78,7 @@ class _AccountScreenState extends State<AccountScreen> {
   Widget build(BuildContext context) {
     ErrorWidget.builder = (FlutterErrorDetails flutterErrorDetails) {
       return Scaffold(
+        
           appBar: AppBar(
             toolbarHeight: 65,
             backgroundColor: Colors.white,
@@ -124,17 +125,17 @@ class _AccountScreenState extends State<AccountScreen> {
               )
             ],
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: Color.fromRGBO(196, 202, 224, 1),
           body: const Center(child: CircularProgressIndicator()));
     };
     firstNameTextInputController.text = loggedInUser.firstName!;
     secondNameTextInputController.text = loggedInUser.secondName!;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromRGBO(196, 202, 224, 1),
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         toolbarHeight: 65,
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromRGBO(150, 166, 192, 1),
         shadowColor: const Color.fromRGBO(0, 0, 0, 0.3),
         automaticallyImplyLeading: false,
         leading: IconButton(
@@ -148,7 +149,7 @@ class _AccountScreenState extends State<AccountScreen> {
         ),
         title: const Text(
           'Редактирование профиля',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'comfortaa', fontSize: 17),
         ),
         actions: [
           PopupMenuButton<MenuItem>(
@@ -167,9 +168,9 @@ class _AccountScreenState extends State<AccountScreen> {
             },
             itemBuilder: (context) => const [
               PopupMenuItem(
-                  value: MenuItem.item1, child: Text('Выйти из аккаунта')),
+                  value: MenuItem.item1, child: Text('Выйти из аккаунта', style: TextStyle(color: Colors.black, fontFamily: 'comfortaa', fontSize: 17),)),
               PopupMenuItem(
-                  value: MenuItem.item2, child: Text('Удалить аккаунт'))
+                  value: MenuItem.item2, child: Text('Удалить аккаунт', style: TextStyle(color: Colors.black, fontFamily: 'comfortaa', fontSize: 17),))
             ],
           )
         ],
@@ -195,7 +196,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   hintStyle: TextStyle(
                       color: Color.fromRGBO(162, 162, 162, 1),
                       fontSize: 16,
-                      fontFamily: 'montserrat'),
+                      fontFamily: 'comfortaa'),
                   hintText: 'Введите имя',
                 ),
               ),
@@ -216,7 +217,7 @@ class _AccountScreenState extends State<AccountScreen> {
                   hintStyle: TextStyle(
                       color: Color.fromRGBO(162, 162, 162, 1),
                       fontSize: 16,
-                      fontFamily: 'montserrat'),
+                      fontFamily: 'comfortaa'),
                   hintText: 'Введите фамилию',
                 ),
               ),
@@ -232,7 +233,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
                     ),
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.white)),
+                        MaterialStateProperty.all<Color>(Color.fromRGBO(150, 166, 192, 1))),
                 onPressed: rename,
                 child: const SizedBox(
                     height: 34,
@@ -242,7 +243,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 20,
-                          fontFamily: 'montserrat',
+                          fontFamily: 'comfortaa',
                           fontWeight: FontWeight.bold),
                     ))),
               ),

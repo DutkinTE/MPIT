@@ -83,6 +83,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
       ? const HomeScreen()
       : Scaffold(
           resizeToAvoidBottomInset: false,
+          backgroundColor: Color.fromRGBO(196, 202, 224, 1),
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(20),
@@ -93,7 +94,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                     child: const Text(
                       'Мы отправили вам\nписьмо с\nподтверждением на\nвашу почту',
                       style: TextStyle(
-                          height: 1.3, fontSize: 24, fontWeight: FontWeight.bold, fontFamily: 'montserrat'),
+                          height: 1.3, fontSize: 24, fontWeight: FontWeight.bold, fontFamily: 'comfortaa'),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -118,7 +119,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                             color: Colors.black,
                             fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          fontFamily: 'montserrat')),
+                          fontFamily: 'comfortaa')),
                       ),
                     ),
                   ),

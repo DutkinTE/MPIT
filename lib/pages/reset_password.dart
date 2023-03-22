@@ -68,7 +68,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromRGBO(196, 202, 224, 1),
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(30.0),
@@ -84,7 +84,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-                      fontFamily: 'montserrat'),
+                      fontFamily: 'comfortaa'),
                 )),
               ),
               const SizedBox(height: 250,),
@@ -101,7 +101,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   hintStyle: TextStyle(
                       color: Color.fromRGBO(162, 162, 162, 1),
                       fontSize: 16,
-                      fontFamily: 'montserrat'),
+                      fontFamily: 'comfortaa'),
                   hintText: 'Введите эл.почту',
                 ),
               ),
@@ -114,8 +114,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        Colors.white)),
+                    backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(150, 166, 192, 1))),
                 onPressed: resetPassword,
                 child: const SizedBox(
                     height: 34,
@@ -127,7 +126,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                           color: Colors.black,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          fontFamily: 'montserrat'),
+                          fontFamily: 'comfortaa'),
                     ))),
               ),
             ],

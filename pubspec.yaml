@@ -49,6 +49,7 @@ dependencies:
   image_picker: ^0.8.6+4
   firebase_messaging: ^14.2.6
   flutter_bloc: ^8.1.2
+  flutter_svg: ^2.0.4
 
 dev_dependencies:
   flutter_test:
@@ -73,9 +74,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - lib/assets/images/Group 389.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -89,11 +89,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: montserrat
+    - family: comfortaa
       fonts:
-        - asset: lib/assets/fonts/Montserrat-Medium.ttf
-        - asset: lib/assets/fonts/Montserrat-Bold.ttf
-          style: italic
+        - asset: lib/assets/fonts/Comfortaa/static/Comfortaa-Medium.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

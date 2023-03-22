@@ -71,6 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(196, 202, 224, 1),
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(30.0),
@@ -78,7 +79,6 @@ class _LoginScreenState extends State<LoginScreen> {
           key: formKey,
           child: Column(
             children: [
-              
               const Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 130, 0, 80),
                 child: Center(
@@ -88,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontWeight: FontWeight.bold,
                       fontSize: 24,
                       height: 1.3,
-                      fontFamily: 'montserrat'),
+                      fontFamily: 'comfortaa'),
                   textAlign: TextAlign.center,
                 )),
               ),
@@ -105,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   hintStyle: TextStyle(
                       color: Color.fromRGBO(162, 162, 162, 1),
                       fontSize: 16,
-                      fontFamily: 'montserrat'),
+                      fontFamily: 'comfortaa'),
                   hintText: 'Введите эл.почту',
                 ),
               ),
@@ -124,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   hintStyle: const TextStyle(
                       color: Color.fromRGBO(162, 162, 162, 1),
                       fontSize: 16,
-                      fontFamily: 'montserrat'),
+                      fontFamily: 'comfortaa'),
                   hintText: 'Пароль',
                   suffix: GestureDetector(
                     onTap: togglePasswordView,
@@ -140,14 +140,14 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 30),
               ElevatedButton(
                 style: ButtonStyle(
-                  elevation: MaterialStateProperty.all(5),
+                    elevation: MaterialStateProperty.all(5),
                     shape: MaterialStateProperty.all(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.white)),
+                        MaterialStateProperty.all<Color>(Color.fromRGBO(150, 166, 192, 1))),
                 onPressed: login,
                 child: const SizedBox(
                     height: 34,
@@ -159,7 +159,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: Colors.black,
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          fontFamily: 'montserrat'),
+                          fontFamily: 'comfortaa'),
                     ))),
               ),
               const SizedBox(height: 20),
@@ -168,25 +168,22 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Text(
                   'Регистрация',
                   style: TextStyle(
-                    color: Color.fromRGBO(162, 162, 162, 1),
-                    fontFamily: 'montserrat',
-                    fontWeight: FontWeight.normal,
-                    fontSize: 14
-                  ),
+                      color: Color.fromRGBO(162, 162, 162, 1),
+                      fontFamily: 'comfortaa',
+                      fontWeight: FontWeight.normal,
+                      fontSize: 14),
                 ),
               ),
               const SizedBox(height: 15),
               GestureDetector(
-                onTap: () =>
-                    Navigator.of(context).pushNamed('/reset_password'),
+                onTap: () => Navigator.of(context).pushNamed('/reset_password'),
                 child: Text(
                   'Сбросить пароль',
                   style: TextStyle(
-                    color: Color.fromRGBO(162, 162, 162, 1),
-                    fontFamily: 'montserrat', 
-                    fontWeight: FontWeight.normal,
-                    fontSize: 14
-                  ),
+                      color: Color.fromRGBO(162, 162, 162, 1),
+                      fontFamily: 'comfortaa',
+                      fontWeight: FontWeight.normal,
+                      fontSize: 14),
                 ),
               ),
             ],
