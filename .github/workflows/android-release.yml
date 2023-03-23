@@ -21,5 +21,7 @@ jobs:
         with:
           flutter-version: "3.0.0"
           channel: 'stable'
+      - name: Get dependencies
+        run: flutter pub get
       - name: Start release build
         run: flutter build appbundle
