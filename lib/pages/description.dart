@@ -95,7 +95,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                             IconButton(
                               
                                 onPressed: () {
-                                  if (admin.contains(user.email)){
+                                  if (admin.contains(user?.email)){
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
