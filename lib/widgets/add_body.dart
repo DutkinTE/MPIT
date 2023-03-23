@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:mpit/data/colors.dart';
 import 'package:mpit/var/var.dart';
 
 class AddBody extends StatefulWidget {
@@ -52,6 +53,7 @@ class _AddBodyState extends State<AddBody> {
             key: formKey,
             child: ListView(children: <Widget>[
               TextFormField(
+                style: TextStyle(color: textColor, fontFamily: 'comfortaa'),
                   keyboardType: TextInputType.text,
                   controller: nameTextInputController,
                   autocorrect: false,
@@ -62,61 +64,65 @@ class _AddBodyState extends State<AddBody> {
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsetsDirectional.fromSTEB(50, 7, 0, 0),
                     hintStyle: TextStyle(
-                        color: Color.fromRGBO(162, 162, 162, 1),
+                        color: Color.fromRGBO(176, 182, 189, 1),
                         fontSize: 16,
-                        fontFamily: 'montserrat'),
+                        fontFamily: 'comfortaa'),
                     hintText: 'Название',
                   ),
                 ),
                 TextFormField(
+                  style: TextStyle(color: textColor, fontFamily: 'comfortaa'),
                   keyboardType: TextInputType.text,
                   controller: eventTextInputController,
                   autocorrect: false,
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsetsDirectional.fromSTEB(50, 7, 0, 0),
                     hintStyle: TextStyle(
-                        color: Color.fromRGBO(162, 162, 162, 1),
+                        color: Color.fromRGBO(176, 182, 189, 1),
                         fontSize: 16,
-                        fontFamily: 'montserrat'),
+                        fontFamily: 'comfortaa'),
                     hintText: 'Мероприятия',
                   ),
                 ),
                 TextFormField(
+                  style: TextStyle(color: textColor, fontFamily: 'comfortaa'),
                   keyboardType: TextInputType.text,
                   controller: infoTextInputController,
                   autocorrect: false,
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsetsDirectional.fromSTEB(50, 7, 0, 0),
                     hintStyle: TextStyle(
-                        color: Color.fromRGBO(162, 162, 162, 1),
+                        color: Color.fromRGBO(176, 182, 189, 1),
                         fontSize: 16,
-                        fontFamily: 'montserrat'),
+                        fontFamily: 'comfortaa'),
                     hintText: 'Информация',
                   ),
                 ),
                 TextFormField(
+                  style: TextStyle(color: textColor, fontFamily: 'comfortaa'),
                   keyboardType: TextInputType.text,
                   controller: listTextInputController,
                   autocorrect: false,
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsetsDirectional.fromSTEB(50, 7, 0, 0),
                     hintStyle: TextStyle(
-                        color: Color.fromRGBO(162, 162, 162, 1),
+                        color: Color.fromRGBO(176, 182, 189, 1),
                         fontSize: 16,
-                        fontFamily: 'montserrat'),
+                        fontFamily: 'comfortaa'),
                     hintText: 'Список оборудования',
                   ),
                 ),
                 TextFormField(
+                  style: TextStyle(color: textColor, fontFamily: 'comfortaa'),
                   keyboardType: TextInputType.text,
                   controller: responsibleTextInputController,
                   autocorrect: false,
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsetsDirectional.fromSTEB(50, 7, 0, 0),
                     hintStyle: TextStyle(
-                        color: Color.fromRGBO(162, 162, 162, 1),
+                        color: Color.fromRGBO(176, 182, 189, 1),
                         fontSize: 16,
-                        fontFamily: 'montserrat'),
+                        fontFamily: 'comfortaa'),
                     hintText: 'Ответственный',
                   ),
                 ),
@@ -132,7 +138,7 @@ class _AddBodyState extends State<AddBody> {
                           ),
                         ),
                         backgroundColor:
-                            MaterialStateProperty.all<Color>(Color.fromRGBO(150, 166, 192, 1))),
+                            MaterialStateProperty.all<Color>(mapColor)),
                     onPressed: add,
                     child: const SizedBox(
                         height: 34,

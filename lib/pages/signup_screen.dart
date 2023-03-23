@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mpit/data/colors.dart';
 import 'package:mpit/models/user_model.dart';
 import 'package:mpit/scripts/snack_bar.dart';
 
@@ -108,7 +109,7 @@ class _SignUpScreen extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(196, 202, 224, 1),
+      backgroundColor: background,
       body: ListView(children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(left: 30.0, right: 30),
@@ -122,15 +123,17 @@ class _SignUpScreen extends State<SignUpScreen> {
                       child: Text(
                     'Регистрация',
                     style: TextStyle(
+                      color: textColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
-                        fontFamily: 'montserrat'),
+                        fontFamily: 'comfortaa'),
                   )),
                 ),
                 const SizedBox(
                   height: 130,
                 ),
                 TextFormField(
+                  style: TextStyle(color: textColor, fontFamily: 'comfortaa'),
                   keyboardType: TextInputType.name,
                   controller: firstNameTextInputController,
                   autocorrect: false,
@@ -141,9 +144,9 @@ class _SignUpScreen extends State<SignUpScreen> {
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsetsDirectional.fromSTEB(50, 7, 0, 0),
                     hintStyle: TextStyle(
-                        color: Color.fromRGBO(162, 162, 162, 1),
+                        color: Color.fromRGBO(176, 182, 189, 1),
                         fontSize: 16,
-                        fontFamily: 'montserrat'),
+                        fontFamily: 'comfortaa'),
                     hintText: 'Имя',
                   ),
                 ),
@@ -151,6 +154,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                   height: 10,
                 ),
                 TextFormField(
+                  style: TextStyle(color: textColor, fontFamily: 'comfortaa'),
                   keyboardType: TextInputType.name,
                   controller: secondNameTextInputController,
                   autocorrect: false,
@@ -161,7 +165,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsetsDirectional.fromSTEB(50, 7, 0, 0),
                     hintStyle: TextStyle(
-                        color: Color.fromRGBO(162, 162, 162, 1),
+                        color: Color.fromRGBO(176, 182, 189, 1),
                         fontSize: 16,
                         fontFamily: 'comfortaa'),
                     hintText: 'Фамилия',
@@ -171,6 +175,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                   height: 10,
                 ),
                 TextFormField(
+                  style: TextStyle(color: textColor, fontFamily: 'comfortaa'),
                   keyboardType: TextInputType.emailAddress,
                   autocorrect: false,
                   controller: emailTextInputController,
@@ -181,7 +186,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsetsDirectional.fromSTEB(50, 7, 0, 0),
                     hintStyle: TextStyle(
-                        color: Color.fromRGBO(162, 162, 162, 1),
+                        color: Color.fromRGBO(176, 182, 189, 1),
                         fontSize: 16,
                         fontFamily: 'comfortaa'),
                     hintText: 'Введите Email',
@@ -191,6 +196,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                   height: 10,
                 ),
                 TextFormField(
+                  style: TextStyle(color: textColor, fontFamily: 'comfortaa'),
                   autocorrect: false,
                   controller: passwordTextInputController,
                   obscureText: isHiddenPassword,
@@ -202,7 +208,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                     contentPadding:
                         const EdgeInsetsDirectional.fromSTEB(50, 0, 0, 0),
                     hintStyle: const TextStyle(
-                        color: Color.fromRGBO(162, 162, 162, 1),
+                        color: Color.fromRGBO(176, 182, 189, 1),
                         fontSize: 16,
                         fontFamily: 'comfortaa'),
                     hintText: 'Введите пароль',
@@ -221,6 +227,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                   height: 10,
                 ),
                 TextFormField(
+                  style: TextStyle(color: textColor, fontFamily: 'comfortaa'),
                   autocorrect: false,
                   controller: passwordTextRepeatInputController,
                   obscureText: isHiddenPassword,
@@ -232,7 +239,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                     contentPadding:
                         const EdgeInsetsDirectional.fromSTEB(50, 0, 0, 0),
                     hintStyle: const TextStyle(
-                        color: Color.fromRGBO(162, 162, 162, 1),
+                        color: Color.fromRGBO(176, 182, 189, 1),
                         fontSize: 16,
                         fontFamily: 'comfortaa'),
                     hintText: 'Введите пароль еще раз',
@@ -259,7 +266,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                         ),
                       ),
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(Color.fromRGBO(150, 166, 192, 1))),
+                          MaterialStateProperty.all<Color>(mapColor)),
                   onPressed: signUp,
                   child: const SizedBox(
                       height: 34,

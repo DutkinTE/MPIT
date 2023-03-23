@@ -2,6 +2,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:mpit/data/colors.dart';
 import 'package:mpit/pages/description.dart';
 
 
@@ -16,7 +17,7 @@ class _ListScreenState extends State<ListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(196, 202, 224, 1),
+      backgroundColor: background,
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('cabinet').snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -45,13 +46,13 @@ class _ListScreenState extends State<ListScreen> {
                                       )));
                     },
                     child: Padding(
-                      padding: const EdgeInsets.only(bottom: 10, right: 10, left: 10),
+                      padding: const EdgeInsets.only(bottom: 10, right: 100, left: 100),
                       child: Container(
                           decoration: BoxDecoration(
-                            color: Color.fromRGBO(123, 142, 173, 1),
+                            color: mapColor,
                             borderRadius: BorderRadius.all(Radius.circular(10))),
                           child: SizedBox(
-                              height: 50,
+                              height: 30,
                               child: Center(
                                   child: Text(snapshot.requireData.docs[index]
                                       ['name'], style: TextStyle(

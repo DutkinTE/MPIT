@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mpit/data/colors.dart';
 
 import '../models/user_model.dart';
 
@@ -39,7 +40,7 @@ class _AccountBodyState extends State<AccountBody> {
       children: [
         Container(
           height: 90,
-          decoration: BoxDecoration(color: Color.fromRGBO(123, 142, 173, 1)),
+          decoration: BoxDecoration(color: mapColor),
           child: Column(
             children: [
               SizedBox(
@@ -77,9 +78,9 @@ class _AccountBodyState extends State<AccountBody> {
           child: Container(
             height: 50,
             decoration: BoxDecoration(
-                color: Color.fromRGBO(123, 142, 173, 1),
+                color: mapColor,
                 border: Border.all(
-                    width: 1, color: Color.fromRGBO(210, 210, 210, 1))),
+                    width: 1, color: mapColor)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [

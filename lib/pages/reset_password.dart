@@ -3,6 +3,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mpit/data/colors.dart';
 
 import '../scripts/snack_bar.dart';
 
@@ -68,7 +69,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(196, 202, 224, 1),
+      backgroundColor: background,
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(30.0),
@@ -82,6 +83,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     child: Text(
                   'Сброс пароля',
                   style: TextStyle(
+                    color: Color.fromRGBO(176, 182, 189, 1),
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                       fontFamily: 'comfortaa'),
@@ -99,7 +101,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 decoration: const InputDecoration(
                   contentPadding: EdgeInsetsDirectional.only(start: 50, top: 7),
                   hintStyle: TextStyle(
-                      color: Color.fromRGBO(162, 162, 162, 1),
+                      color: Color.fromRGBO(176, 182, 189, 1),
                       fontSize: 16,
                       fontFamily: 'comfortaa'),
                   hintText: 'Введите эл.почту',
@@ -114,7 +116,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(150, 166, 192, 1))),
+                    backgroundColor: MaterialStateProperty.all<Color>(mapColor)),
                 onPressed: resetPassword,
                 child: const SizedBox(
                     height: 34,

@@ -4,7 +4,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mpit/data/admin.dart';
+import 'package:mpit/data/colors.dart';
 import 'package:mpit/models/user_model.dart';
+import 'package:mpit/pages/chats_screen.dart';
 import 'package:mpit/pages/list_screen.dart';
 import 'package:mpit/var/var.dart';
 import 'package:mpit/widgets/add_body.dart';
@@ -53,47 +55,11 @@ class _ScreenState extends State<Screen> {
 
     ErrorWidget.builder = (FlutterErrorDetails flutterErrorDetails) {
       return const Scaffold(
-          backgroundColor: Color.fromRGBO(196, 202, 224, 1),
+          backgroundColor: Color.fromRGBO(27, 31, 39, 1),
           body: Center(child: Text('Подождите')));
     };
     return Scaffold(
-      
-      drawer: Padding(
-        padding: const EdgeInsets.only(
-          top: 50.0,
-          bottom: 300,
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(10), bottomRight: Radius.circular(10)),
-          child: Drawer(
-            backgroundColor: Color.fromRGBO(93, 118, 149, 1),
-            width: 200,
-            child: Column(children: [
-              SizedBox(height: 10,),
-              GestureDetector(
-                onTap: (){
-                  Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ListScreen()));
-                },
-                child: Row(children: [
-                  SizedBox(width: 10,),
-                  Icon(Icons.door_front_door_outlined, color: Colors.white, size: 30,),
-                  SizedBox(width: 10,),
-                  Text('Кабинеты', style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.white,
-                                  fontFamily: 'comfortaa')),
-                                  
-                ],),
-              )
-            ]),
-          ),
-        ),
-      ),
-      backgroundColor: Color.fromRGBO(196, 202, 224, 1),
+      backgroundColor: background,
       key: scaffoldKey,
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: Padding(
@@ -108,50 +74,89 @@ class _ScreenState extends State<Screen> {
             ),
             child: admin.contains(user!.email)
                 ? BottomNavigationBar(
-                    showSelectedLabels: false,
-                    showUnselectedLabels: false,
-                    backgroundColor: Color.fromRGBO(93, 118, 149, 1),
+                    unselectedItemColor: textColor,
+                    selectedItemColor: enableColor,
+                    backgroundColor: appColor,
+                    selectedLabelStyle: TextStyle(fontSize: 10, fontFamily: 'comfortaa'),
+                    unselectedLabelStyle: TextStyle(fontSize: 10, fontFamily: 'comfortaa'),
                     items: <BottomNavigationBarItem>[
                       BottomNavigationBarItem(
-                          icon: Icon(
-                            Icons.home_outlined,
-                            color: Colors.white,
-                          ),
-                          label: ''),
+                        icon: Icon(Icons.map_outlined),
+                        label: 'Карта',
+                      ),
                       BottomNavigationBarItem(
                           icon: Icon(
                             Icons.add,
-                            color: Colors.white,
                           ),
-                          label: ''),
+                          label: 'Добавить'),
                       BottomNavigationBarItem(
-                          icon: Icon(Icons.person_outline, color: Colors.white),
-                          label: '')
+                          icon: Icon(Icons.person_outline),
+                          label: 'Пользователь')
                     ],
                     iconSize: 30,
                     currentIndex: selectedIndex,
                     onTap: _onItemTapped,
                   )
                 : BottomNavigationBar(
-                    showSelectedLabels: false,
-                    showUnselectedLabels: false,
+                    unselectedItemColor: textColor,
+                    selectedItemColor: enableColor,
                     backgroundColor: Color.fromRGBO(93, 118, 149, 1),
                     items: <BottomNavigationBarItem>[
                       BottomNavigationBarItem(
                           icon: Icon(
                             Icons.home_outlined,
-                            color: Colors.white,
                           ),
-                          label: ''),
+                          label: 'Карта'),
                       BottomNavigationBarItem(
-                          icon: Icon(Icons.person_outline, color: Colors.white),
-                          label: '')
+                          icon: Icon(Icons.map_outlined),
+                          label: 'Пользователь')
                     ],
                     iconSize: 30,
                     currentIndex: selectedIndex,
                     onTap: _onItemTapped,
                   )),
       ),
+      appBar: AppBar(
+          elevation: 0,
+          backgroundColor: appColor,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ListScreen()));
+                },
+                child: Text('Кабинеты',
+                    style: TextStyle(
+                        fontSize: 17,
+                        color: textColor,
+                        fontFamily: 'comfortaa')),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ChatScreen()));
+                },
+                child: Text('Чат',
+                    style: TextStyle(
+                        fontSize: 17,
+                        color: textColor,
+                        fontFamily: 'comfortaa')),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ChatScreen()));
+                },
+                child: Text('Меню',
+                    style: TextStyle(
+                        fontSize: 17,
+                        color: textColor,
+                        fontFamily: 'comfortaa')),
+              )
+            ],
+          )),
       body: body_main[selectedIndex],
     );
   }

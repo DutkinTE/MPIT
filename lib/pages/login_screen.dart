@@ -3,6 +3,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:mpit/data/colors.dart';
 import 'package:mpit/scripts/snack_bar.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -71,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(196, 202, 224, 1),
+      backgroundColor: background,
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(30.0),
@@ -88,11 +89,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontWeight: FontWeight.bold,
                       fontSize: 24,
                       height: 1.3,
-                      fontFamily: 'comfortaa'),
+                      fontFamily: 'comfortaa',
+                      color: Color.fromRGBO(176, 182, 189, 1)),
                   textAlign: TextAlign.center,
                 )),
               ),
               TextFormField(
+                style: TextStyle(color: textColor),
                 keyboardType: TextInputType.emailAddress,
                 autocorrect: false,
                 controller: emailTextInputController,
@@ -103,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 decoration: const InputDecoration(
                   contentPadding: EdgeInsetsDirectional.fromSTEB(50, 7, 0, 0),
                   hintStyle: TextStyle(
-                      color: Color.fromRGBO(162, 162, 162, 1),
+                      color: Color.fromRGBO(176, 182, 189, 1),
                       fontSize: 16,
                       fontFamily: 'comfortaa'),
                   hintText: 'Введите эл.почту',
@@ -111,6 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 30),
               TextFormField(
+                style: TextStyle(color: textColor),
                 autocorrect: false,
                 controller: passwordTextInputController,
                 obscureText: isHiddenPassword,
@@ -122,7 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   contentPadding:
                       const EdgeInsetsDirectional.fromSTEB(50, 0, 0, 0),
                   hintStyle: const TextStyle(
-                      color: Color.fromRGBO(162, 162, 162, 1),
+                      color: Color.fromRGBO(176, 182, 189, 1),
                       fontSize: 16,
                       fontFamily: 'comfortaa'),
                   hintText: 'Пароль',
@@ -132,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       isHiddenPassword
                           ? Icons.visibility_off
                           : Icons.visibility,
-                      color: Colors.black,
+                      color: textColor,
                     ),
                   ),
                 ),
@@ -147,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Color.fromRGBO(150, 166, 192, 1))),
+                        MaterialStateProperty.all<Color>(mapColor)),
                 onPressed: login,
                 child: const SizedBox(
                     height: 34,
@@ -168,7 +172,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Text(
                   'Регистрация',
                   style: TextStyle(
-                      color: Color.fromRGBO(162, 162, 162, 1),
+                      color: Color.fromRGBO(176, 182, 189, 1),
                       fontFamily: 'comfortaa',
                       fontWeight: FontWeight.normal,
                       fontSize: 14),
@@ -180,7 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Text(
                   'Сбросить пароль',
                   style: TextStyle(
-                      color: Color.fromRGBO(162, 162, 162, 1),
+                      color: Color.fromRGBO(176, 182, 189, 1),
                       fontFamily: 'comfortaa',
                       fontWeight: FontWeight.normal,
                       fontSize: 14),

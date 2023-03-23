@@ -1,7 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mpit/data/admin.dart';
+import 'package:mpit/data/colors.dart';
+import 'package:mpit/pages/edit_screen.dart';
+
+import '../models/user_model.dart';
 
 class DescriptionScreen extends StatefulWidget {
   String name = '';
@@ -13,7 +19,6 @@ class DescriptionScreen extends StatefulWidget {
   DescriptionScreen({
     super.key,
     required this.name,
-    
     required this.events,
     required this.info,
     required this.list,
@@ -34,12 +39,19 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
   String list = '';
   String responsible = '';
   _DescriptionScreenState(
-      this.name,  this.events, this.info, this.list, this.responsible, this.id,);
+    this.name,
+    this.events,
+    this.info,
+    this.list,
+    this.responsible,
+    this.id,
+  );
   @override
   Widget build(BuildContext context) {
-    return 
-    Scaffold(
-        backgroundColor: Color.fromRGBO(196, 202, 224, 1),
+     User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
+    return Scaffold(
+        backgroundColor: background,
         body: Column(children: [
           SizedBox(
             height: 70,
@@ -50,16 +62,16 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
               child: Container(
                   height: 650,
                   decoration: BoxDecoration(
-                      color: Color.fromRGBO(123, 142, 173, 1),
+                      color: appColor,
                       borderRadius: BorderRadius.all(Radius.circular(17))),
                   child: Column(children: [
                     Container(
                       height: 60,
                       decoration: BoxDecoration(
                           border: Border.all(
-                              color: Color.fromRGBO(150, 166, 192, 1),
-                              width: 3),
-                          color: Color.fromRGBO(93, 118, 149, 1),
+                              color: appColor,
+                              width: 2),
+                          color: mapColor,
                           borderRadius: BorderRadius.all(Radius.circular(17))),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -80,16 +92,26 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                                   fontFamily: 'comfortaa'),
                             ),
                             IconButton(
-                                onPressed: () async {
-                                  await FirebaseFirestore.instance
-                                      .collection('cabinet')
-                                      .doc(id)
-                                      .delete();
-                                  Navigator.pop(context);
+                              
+                                onPressed: () {
+                                  if (admin.contains(user.email)){
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              EditScreen(
+                                                  name: name,
+                                                  events: events,
+                                                  info: info,
+                                                  list: list,
+                                                  responsible: responsible,
+                                                  id: id)));
+                                  }
+                                  
                                 },
                                 icon: Icon(
-                                  Icons.delete_outline,
-                                  color: Colors.white,
+                                  Icons.edit_outlined,
+                                  color: (admin.contains(user!.email)) ? Colors.white : Color.fromRGBO(255, 255, 255, 0)
                                 ))
                           ]),
                     ),
@@ -104,16 +126,18 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                         Icon(
                           Icons.person_outline,
                           size: 40,
-                          color: Colors.white,
+                          color: textColor,
                         ),
                         SizedBox(
                           width: 10,
                         ),
-                        Text(responsible,
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontFamily: 'comfortaa'))
+                        Flexible(
+                          child: Text(responsible,
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: textColor,
+                                  fontFamily: 'comfortaa')),
+                        )
                       ],
                     ),
                     SizedBox(
@@ -127,16 +151,18 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                         Icon(
                           Icons.info_outline,
                           size: 40,
-                          color: Colors.white,
+                          color: textColor,
                         ),
                         SizedBox(
                           width: 10,
                         ),
-                        Text(info,
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontFamily: 'comfortaa'))
+                        Flexible(
+                          child: Text(info,
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: textColor,
+                                  fontFamily: 'comfortaa')),
+                        )
                       ],
                     ),
                     SizedBox(
@@ -150,7 +176,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                         Icon(
                           Icons.monitor_outlined,
                           size: 40,
-                          color: Colors.white,
+                          color: textColor,
                         ),
                         SizedBox(
                           width: 10,
@@ -158,8 +184,8 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                         Flexible(
                           child: Text(list,
                               style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
+                                  fontSize: 15,
+                                  color: textColor,
                                   fontFamily: 'comfortaa')),
                         )
                       ],
@@ -170,7 +196,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                     Container(
                       height: 420,
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(93, 118, 149, 1),
+                          color: mapColor,
                           borderRadius: BorderRadius.all(Radius.circular(17))),
                       child: Column(
                         children: [
@@ -178,9 +204,9 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                             height: 50,
                             decoration: BoxDecoration(
                                 border: Border.all(
-                                    color: Color.fromRGBO(150, 166, 192, 1),
+                                    color: appColor,
                                     width: 3),
-                                color: Color.fromRGBO(93, 118, 149, 1),
+                                color: mapColor,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(17))),
                             child: Center(
@@ -198,11 +224,13 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                           Padding(
                             padding:
                                 const EdgeInsets.only(left: 10.0, right: 10),
-                            child: Text(events,
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                    fontFamily: 'comfortaa')),
+                            child: Flexible(
+                              child: Text(events,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontFamily: 'comfortaa')),
+                            ),
                           )
                         ],
                       ),

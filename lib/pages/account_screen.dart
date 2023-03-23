@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mpit/data/colors.dart';
 import 'package:mpit/models/user_model.dart';
 
 enum MenuItem { item1, item2 }
@@ -81,7 +82,7 @@ class _AccountScreenState extends State<AccountScreen> {
         
           appBar: AppBar(
             toolbarHeight: 65,
-            backgroundColor: Colors.white,
+            backgroundColor: appColor,
             shadowColor: const Color.fromRGBO(0, 0, 0, 0.3),
             automaticallyImplyLeading: false,
             leading: IconButton(
@@ -125,18 +126,18 @@ class _AccountScreenState extends State<AccountScreen> {
               )
             ],
           ),
-          backgroundColor: Color.fromRGBO(196, 202, 224, 1),
+          backgroundColor: background,
           body: const Center(child: CircularProgressIndicator()));
     };
     firstNameTextInputController.text = loggedInUser.firstName!;
     secondNameTextInputController.text = loggedInUser.secondName!;
     return Scaffold(
-      backgroundColor: Color.fromRGBO(196, 202, 224, 1),
+      backgroundColor: background,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         toolbarHeight: 65,
-        backgroundColor: Color.fromRGBO(150, 166, 192, 1),
-        shadowColor: const Color.fromRGBO(0, 0, 0, 0.3),
+        backgroundColor: appColor,
+        elevation: 0,
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {
@@ -144,18 +145,18 @@ class _AccountScreenState extends State<AccountScreen> {
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: Colors.black,
+            color: Color.fromRGBO(176, 182, 189, 1),
           ),
         ),
         title: const Text(
           'Редактирование профиля',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontFamily: 'comfortaa', fontSize: 17),
+          style: TextStyle(color: Color.fromRGBO(176, 182, 189, 1), fontWeight: FontWeight.bold, fontFamily: 'comfortaa', fontSize: 17),
         ),
         actions: [
           PopupMenuButton<MenuItem>(
             icon: const Icon(
               Icons.more_vert,
-              color: Colors.black,
+              color: Color.fromRGBO(176, 182, 189, 1),
             ),
             onSelected: (value) async {
               setState(() {
@@ -185,6 +186,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 height: 30,
               ),
               TextFormField(
+                style: TextStyle(color: textColor, fontFamily: 'comfortaa'),
                 keyboardType: TextInputType.name,
                 validator: (firstName) => firstName != null && firstName.isEmpty
                     ? 'Введите Имя'
@@ -204,7 +206,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 height: 10,
               ),
               TextFormField(
-                
+                style: TextStyle(color: textColor, fontFamily: 'comfortaa'),
                 keyboardType: TextInputType.name,
                 validator: (secondname) =>
                     secondname != null && secondname.isEmpty
@@ -233,7 +235,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       ),
                     ),
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Color.fromRGBO(150, 166, 192, 1))),
+                        MaterialStateProperty.all<Color>(mapColor)),
                 onPressed: rename,
                 child: const SizedBox(
                     height: 34,
