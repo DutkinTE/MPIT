@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mpit/data/colors.dart';
+import 'package:mpit/var/var.dart';
 
 import '../models/user_model.dart';
 
@@ -54,7 +55,7 @@ class _AccountBodyState extends State<AccountBody> {
                   Icon(
                     Icons.person_outline,
                     size: 35,
-                    color: Colors.white,
+                    color: appColor,
                   ),
                   SizedBox(
                     width: 15,
@@ -64,7 +65,7 @@ class _AccountBodyState extends State<AccountBody> {
                     style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'comfortaa',
-                        color: Colors.white),
+                        color: appColor),
                   )
                 ],
               ),
@@ -92,13 +93,14 @@ class _AccountBodyState extends State<AccountBody> {
                     style: TextStyle(
                         fontFamily: 'comfortaa',
                         fontSize: 14,
-                        color: Colors.white),
+                        color: appColor),
                   ),
                 ),
               ],
             ),
           ),
         ),
+        
       ],
     );
   }

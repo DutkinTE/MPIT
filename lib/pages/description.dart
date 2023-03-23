@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:mpit/data/admin.dart';
 import 'package:mpit/data/colors.dart';
 import 'package:mpit/pages/edit_screen.dart';
+import 'package:mpit/var/var.dart';
 
 import '../models/user_model.dart';
 
@@ -62,16 +63,16 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
               child: Container(
                   height: 650,
                   decoration: BoxDecoration(
-                      color: appColor,
+                      color: darkMode ? appColor : Color.fromRGBO(226, 229, 238, 1),
                       borderRadius: BorderRadius.all(Radius.circular(17))),
                   child: Column(children: [
                     Container(
                       height: 60,
                       decoration: BoxDecoration(
                           border: Border.all(
-                              color: appColor,
+                              color: darkMode ? appColor : Color.fromRGBO(226, 229, 238, 1),
                               width: 2),
-                          color: mapColor,
+                          color: darkMode ? Color.fromRGBO(226, 229, 238, 1) : Color.fromRGBO(26, 31, 41, 1),
                           borderRadius: BorderRadius.all(Radius.circular(17))),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -82,13 +83,13 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                                 },
                                 icon: Icon(
                                   Icons.arrow_back,
-                                  color: Colors.white,
+                                  color: darkMode ? Color.fromRGBO(26, 31, 41, 1) : Color.fromRGBO(226, 229, 238, 1)
                                 )),
                             Text(
                               name,
                               style: TextStyle(
                                   fontSize: 25,
-                                  color: Colors.white,
+                                  color: darkMode ? Color.fromRGBO(26, 31, 41, 1) : Color.fromRGBO(226, 229, 238, 1) ,
                                   fontFamily: 'comfortaa'),
                             ),
                             IconButton(
@@ -111,7 +112,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                                 },
                                 icon: Icon(
                                   Icons.edit_outlined,
-                                  color: (admin.contains(user!.email)) ? Colors.white : Color.fromRGBO(255, 255, 255, 0)
+                                  color: (admin.contains(user!.email)) ? darkMode ? Color.fromRGBO(26, 31, 41, 1) : Color.fromRGBO(226, 229, 238, 1)  : Color.fromRGBO(255, 255, 255, 0)
                                 ))
                           ]),
                     ),
@@ -126,7 +127,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                         Icon(
                           Icons.person_outline,
                           size: 40,
-                          color: textColor,
+                          color: darkMode ? Color.fromRGBO(226, 229, 238, 1) : Color.fromRGBO(26, 31, 41, 1) ,
                         ),
                         SizedBox(
                           width: 10,
@@ -135,7 +136,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                           child: Text(responsible,
                               style: TextStyle(
                                   fontSize: 15,
-                                  color: textColor,
+                                  color: darkMode ? Color.fromRGBO(226, 229, 238, 1) : Color.fromRGBO(26, 31, 41, 1),
                                   fontFamily: 'comfortaa')),
                         )
                       ],
@@ -151,7 +152,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                         Icon(
                           Icons.info_outline,
                           size: 40,
-                          color: textColor,
+                          color: darkMode ? Color.fromRGBO(226, 229, 238, 1) : Color.fromRGBO(26, 31, 41, 1),
                         ),
                         SizedBox(
                           width: 10,
@@ -160,7 +161,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                           child: Text(info,
                               style: TextStyle(
                                   fontSize: 15,
-                                  color: textColor,
+                                  color: darkMode ? Color.fromRGBO(226, 229, 238, 1) : Color.fromRGBO(26, 31, 41, 1),
                                   fontFamily: 'comfortaa')),
                         )
                       ],
@@ -176,7 +177,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                         Icon(
                           Icons.monitor_outlined,
                           size: 40,
-                          color: textColor,
+                          color: darkMode ? Color.fromRGBO(226, 229, 238, 1) : Color.fromRGBO(26, 31, 41, 1),
                         ),
                         SizedBox(
                           width: 10,
@@ -185,7 +186,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                           child: Text(list,
                               style: TextStyle(
                                   fontSize: 15,
-                                  color: textColor,
+                                  color: darkMode ? Color.fromRGBO(226, 229, 238, 1) : Color.fromRGBO(26, 31, 41, 1),
                                   fontFamily: 'comfortaa')),
                         )
                       ],
@@ -196,7 +197,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                     Container(
                       height: 420,
                       decoration: BoxDecoration(
-                          color: mapColor,
+                          color: darkMode ? Color.fromRGBO(226, 229, 238, 1) : Color.fromRGBO(26, 31, 41, 1),
                           borderRadius: BorderRadius.all(Radius.circular(17))),
                       child: Column(
                         children: [
@@ -204,9 +205,9 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                             height: 50,
                             decoration: BoxDecoration(
                                 border: Border.all(
-                                    color: appColor,
+                                    color: darkMode ? Color.fromRGBO(26, 31, 41, 1) : Color.fromRGBO(226, 229, 238, 1),
                                     width: 3),
-                                color: mapColor,
+                                color: darkMode ? Color.fromRGBO(226, 229, 238, 1) : Color.fromRGBO(26, 31, 41, 1),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(17))),
                             child: Center(
@@ -214,7 +215,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                               'События',
                               style: TextStyle(
                                   fontSize: 20,
-                                  color: Colors.white,
+                                  color: darkMode ? Color.fromRGBO(26, 31, 41, 1) : Color.fromRGBO(226, 229, 238, 1) ,
                                   fontFamily: 'comfortaa'),
                             )),
                           ),
@@ -228,7 +229,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                               child: Text(events,
                                   style: TextStyle(
                                       fontSize: 20,
-                                      color: Colors.white,
+                                      color: darkMode ? Color.fromRGBO(26, 31, 41, 1) : Color.fromRGBO(226, 229, 238, 1) ,
                                       fontFamily: 'comfortaa')),
                             ),
                           )

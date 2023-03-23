@@ -14,7 +14,7 @@ List<Map<String, dynamic>> admin2 = [
     "uid": ""
   },
   {
-    "email": "test2@mail.ru",
+    "email": "milanalapteva39@gmail.com",
     "name": "Милана",
     "lastName": "Лаптева",
     "uid": ""

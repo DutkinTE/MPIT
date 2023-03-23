@@ -8,6 +8,7 @@ import 'package:mpit/data/colors.dart';
 import 'package:mpit/models/user_model.dart';
 import 'package:mpit/pages/chats_screen.dart';
 import 'package:mpit/pages/list_screen.dart';
+import 'package:mpit/pages/menu_screen.dart';
 import 'package:mpit/var/var.dart';
 import 'package:mpit/widgets/add_body.dart';
 
@@ -117,6 +118,20 @@ class _ScreenState extends State<Screen> {
                   )),
       ),
       appBar: AppBar(
+        leading: IconButton(icon: darkMode ? Icon(Icons.light_mode_outlined, color: textColor,) : Icon(Icons.dark_mode_outlined, color: textColor,), onPressed: (){
+          setState(() {
+              if (darkMode){
+
+                background = Color.fromRGBO(226, 229, 238, 1);
+
+                darkMode = false;
+                
+              } else {
+                background = Color.fromRGBO(27, 31, 39, 1);
+                darkMode = true;
+              }
+            });
+        },),
           elevation: 0,
           backgroundColor: appColor,
           title: Row(
@@ -147,7 +162,7 @@ class _ScreenState extends State<Screen> {
               GestureDetector(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ChatScreen()));
+                      MaterialPageRoute(builder: (context) => MenuScreen()));
                 },
                 child: Text('Меню',
                     style: TextStyle(

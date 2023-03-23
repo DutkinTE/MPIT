@@ -26,54 +26,9 @@ class _MainBodyState extends State<MainBody> {
             child: Column(
               children: [
 
+                
                 Container(
-                  height: 25,
-                  color: appColor,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            currentIndex = 0;
-                          });
-                        },
-                        child: Center(
-                            child: Text(
-                          '1 этаж',
-                          style: TextStyle(
-                              fontFamily: 'comfortaa', color: textColor),
-                        )),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            currentIndex = 1;
-                          });
-                        },
-                        child: Center(
-                            child: Text('2 этаж',
-                                style: TextStyle(
-                                    fontFamily: 'comfortaa',
-                                    color: textColor))),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            currentIndex = 2;
-                          });
-                        },
-                        child: Center(
-                            child: Text('3 этаж',
-                                style: TextStyle(
-                                    fontFamily: 'comfortaa',
-                                    color: textColor))),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  color: mapColor,
+                  color: Color.fromRGBO(226, 229, 238, 1),
                   child: Padding(
                     padding: const EdgeInsets.only(top: 10.0, bottom: 10),
                     child: Center(
@@ -3459,6 +3414,61 @@ class _MainBodyState extends State<MainBody> {
                                     ),
                                   ],
                                 ),
+                    ),
+                  ),
+                ),
+                
+                SizedBox(height: 10,),
+                Padding(
+                  padding: const EdgeInsets.only(left: 25.0, right: 25),
+                  child: Container(
+                    decoration: BoxDecoration(
+color: appColor,
+borderRadius: BorderRadius.all(Radius.circular(10))
+                    ),
+                    height: 30,
+                    
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              currentIndex = 0;
+                            });
+                          },
+                          child: Center(
+                              child: Text(
+                            '1 этаж',
+                            style: TextStyle(
+                                fontFamily: 'comfortaa', color: textColor),
+                          )),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              currentIndex = 1;
+                            });
+                          },
+                          child: Center(
+                              child: Text('2 этаж',
+                                  style: TextStyle(
+                                      fontFamily: 'comfortaa',
+                                      color: textColor))),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              currentIndex = 2;
+                            });
+                          },
+                          child: Center(
+                              child: Text('3 этаж',
+                                  style: TextStyle(
+                                      fontFamily: 'comfortaa',
+                                      color: textColor))),
+                        ),
+                      ],
                     ),
                   ),
                 ),
