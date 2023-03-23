@@ -1,16 +1,28 @@
-# mpit
+# School guide
 
-A new Flutter project.
+## Бриф на разработку  
 
-## Getting Started
+Мобильное приложение “School Guide”. Мы создали это приложение для быстрой и удобной ориентации в школе.
 
-This project is a starting point for a Flutter application.
+## Основной функционал прототипа 
 
-A few resources to get you started if this is your first Flutter project:
+- Аутентификация
+- Личный кабинет
+- Редактирование профиля
+- Список помещений
+- Изменение столового меню
+- Переключение между темами приложения
+- Интерактивная схема школы
+- Разные приложения для админов и пользователей
+- Добавление информации о новом помещении
+- Изменение данных о помещении
+- Просмотр информации о помещении
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Стек технологий
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Flutter - фреймворк
+- Dart - язык программирования
+- Firebase - база данных, серверная часть
+- Visual Studio Code - среда разработки
+- Android Studio - для разработки под андроид
+- XCode - для разработки под IOS
