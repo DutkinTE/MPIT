@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mpit/data/colors.dart';
 import 'package:mpit/var/var.dart';
 
@@ -35,7 +36,18 @@ class _AccountBodyState extends State<AccountBody> {
   @override
   Widget build(BuildContext context) {
     if (loggedInUser.firstName == null) {
-      return Center(child: Text('Подождите'));
+      return Scaffold(
+        backgroundColor: background,
+          body: Stack(children: [
+            SvgPicture.asset('lib/assets/images/Group 47492.svg'),
+            Center(child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset('lib/assets/images/Group 47489.svg'),
+                CircularProgressIndicator(color: Colors.white,)
+              ],
+            ),)
+          ],));
     }
     return ListView(
       children: [

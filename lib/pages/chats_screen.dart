@@ -44,7 +44,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         child: Container(
                           height: 50,
                           color: mapColor,
-                          child: Center(child: Text('${admin2[index]['lastName']} ${admin2[index]['name']}', style: TextStyle(),))),
+                          child: Center(child: Text('${admin2[index]['lastName']} ${admin2[index]['name']}', style: TextStyle(fontFamily: 'comfortaa'),))),
                       ),
                         SizedBox(height: 10,)
                     ],

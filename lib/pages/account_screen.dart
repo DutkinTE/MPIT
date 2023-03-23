@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mpit/data/colors.dart';
 import 'package:mpit/models/user_model.dart';
 
@@ -80,55 +81,17 @@ class _AccountScreenState extends State<AccountScreen> {
   Widget build(BuildContext context) {
     ErrorWidget.builder = (FlutterErrorDetails flutterErrorDetails) {
       return Scaffold(
-        
-          appBar: AppBar(
-            toolbarHeight: 65,
-            backgroundColor: appColor,
-            shadowColor: const Color.fromRGBO(0, 0, 0, 0.3),
-            automaticallyImplyLeading: false,
-            leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.black,
-              ),
-            ),
-            title: const Text(
-              'Редактирование профиля',
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-            ),
-            actions: [
-              PopupMenuButton<MenuItem>(
-                icon: const Icon(
-                  Icons.more_vert,
-                  color: Colors.black,
-                ),
-                onSelected: (value) {
-                  if (value == MenuItem.item1) {
-                    signOut();
-                  } else {
-                    FirebaseFirestore.instance
-                        .collection('users')
-                        .doc(user!.uid)
-                        .delete();
-                    FirebaseAuth.instance.currentUser!.delete();
-                    Navigator.pop(context);
-                  }
-                },
-                itemBuilder: (context) => const [
-                  PopupMenuItem(
-                      value: MenuItem.item1, child: Text('Выйти из аккаунта')),
-                  PopupMenuItem(
-                      value: MenuItem.item2, child: Text('Удалить аккаунт'))
-                ],
-              )
-            ],
-          ),
-          backgroundColor: background,
-          body: const Center(child: CircularProgressIndicator()));
+        backgroundColor: background,
+          body: Stack(children: [
+            SvgPicture.asset('lib/assets/images/Group 47492.svg'),
+            Center(child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset('lib/assets/images/Group 47489.svg'),
+                CircularProgressIndicator(color: Colors.white,)
+              ],
+            ),)
+          ],));
     };
     firstNameTextInputController.text = loggedInUser.firstName!;
     secondNameTextInputController.text = loggedInUser.secondName!;

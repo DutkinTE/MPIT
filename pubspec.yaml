@@ -51,6 +51,7 @@ dependencies:
   flutter_bloc: ^8.1.2
   flutter_svg: ^2.0.4
   flutter_firebase_chat_core: ^1.6.4
+  zoom_widget: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +80,8 @@ flutter:
     - lib/assets/images/Group 389.svg
     - lib/assets/images/Group 389 (1).svg
     - lib/assets/images/Group 390.svg
+    - lib/assets/images/Group 47492.svg
+    - lib/assets/images/Group 47489.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

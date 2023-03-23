@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mpit/data/admin.dart';
 import 'package:mpit/data/colors.dart';
 import 'package:mpit/models/user_model.dart';
@@ -55,9 +56,10 @@ class _ScreenState extends State<Screen> {
     GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
     ErrorWidget.builder = (FlutterErrorDetails flutterErrorDetails) {
-      return const Scaffold(
-          backgroundColor: Color.fromRGBO(27, 31, 39, 1),
-          body: Center(child: Text('Подождите')));
+      return Scaffold(
+          body: Stack(children: [
+            SvgPicture.asset('lib/assets/images/Group 47492.svg')
+          ],));
     };
     return Scaffold(
       backgroundColor: background,
